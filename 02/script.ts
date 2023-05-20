@@ -1,44 +1,37 @@
 import { readBdFile, writeToDbFile } from "../01/script";
-
-type Address = {
-  zipCode: string,
-  road: string,
-  complement?: string,
-  neighborhood: string,
-  city: string
-}
-
-type User = {
-  name: string,
-  email: string,
-  cpf: number,
-  profession?: string,
-  address: Address | null
-}
+import serverErrors from "../errorMessage/serverErrors";
+import { User } from "../types/User";
 
 export const registerUser = async (user: User): Promise<User | string> => {
   try {
-    const usersDb: string = await readBdFile();
+    const usersDb: User[] | string = await readBdFile();
 
-    const users: User[] = JSON.parse(usersDb);
+    if (typeof usersDb === "string") return serverErrors.critical;
+
+    const users: User[] = usersDb;
 
     const newUserAdded: User[] = [...users, user];
 
-    await writeToDbFile(newUserAdded);
+    const error: string | void = await writeToDbFile(newUserAdded);
+
+    if (error === "string") return serverErrors.critical;
 
     return user;
 
   } catch (error) {
-    return "Erro ao cadastrar usuário";
+    return serverErrors.critical;
   }
 }
 
 export const listRegisteredUsers = async (): Promise<User[] | string> => {
   try {
-    const users: User[] = JSON.parse(await readBdFile());
+    const users: User[] | string = await readBdFile();
+
+    if (typeof users === "string") return serverErrors.critical;
+
     return users;
 
   } catch (error) {
-    return "Erro ao listar usuários cadastrados";
+    return serverErrors.critical;
   }
 }

@@ -2,7 +2,7 @@
   {
     "name": "João",
     "email": "joao@email.com",
-    "cpf": 12345578901,
+    "cpf": 12345678901,
     "address": {
       "zipCode": "12345600",
       "road": "Rua pedro Miguel",
