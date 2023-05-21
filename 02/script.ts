@@ -1,4 +1,5 @@
 import { readBdFile, writeToDbFile } from "../01/script";
+import { filterUsersByProfession } from "../05/script";
 import serverErrors from "../errorMessage/serverErrors";
 import { User } from "../types/User";
 
@@ -23,8 +24,12 @@ export const registerUser = async (user: User): Promise<User | string> => {
   }
 }
 
-export const listRegisteredUsers = async (): Promise<User[] | string> => {
+export const listRegisteredUsersOrFilterByProfession = async (profession?: string): Promise<User[] | string> => {
   try {
+    if (profession) {
+      return await filterUsersByProfession(profession);
+    }
+
     const users: User[] | string = await readBdFile();
 
     if (typeof users === "string") return serverErrors.critical;
