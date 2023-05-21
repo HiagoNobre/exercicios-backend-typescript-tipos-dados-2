@@ -3,6 +3,42 @@
     "name": "Pedro",
     "email": "pedro@email.com",
     "cpf": 12345578901,
+    "profession": "Instrutor front-end",
+    "address": {
+      "zipCode": "12345600",
+      "road": "Rua pedro Miguel",
+      "neighborhood": "São Lourenço",
+      "city": "Belo  Campo"
+    }
+  },
+  {
+    "name": "Thiago",
+    "email": "pedro@email.com",
+    "cpf": 12345578901,
+    "profession": "Instrutor back-end",
+    "address": {
+      "zipCode": "12345600",
+      "road": "Rua pedro Miguel",
+      "neighborhood": "São Lourenço",
+      "city": "Belo  Campo"
+    }
+  },
+  {
+    "name": "João",
+    "email": "pedro@email.com",
+    "cpf": 12345578901,
+    "address": {
+      "zipCode": "12345600",
+      "road": "Rua pedro Miguel",
+      "neighborhood": "São Lourenço",
+      "city": "Belo  Campo"
+    }
+  },
+  {
+    "name": "Marcos",
+    "email": "pedro@email.com",
+    "cpf": 12345578901,
+    "profession": "Instrutor back-end",
     "address": {
       "zipCode": "12345600",
       "road": "Rua pedro Miguel",
